@@ -133,7 +133,7 @@ import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
                      modifier = Modifier.size(80.dp),
                      tint = Color.White
                  )
-                 Texto()
+                 Titulo("¡Bievenidx a Torneos.UD!")
                  TipoUsuario()
                  Entrada(InicioSesion.Correo, keyboardActions = KeyboardActions(onNext = {
                      claveFocusRequester.requestFocus()
@@ -141,23 +141,28 @@ import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
                  Entrada(InicioSesion.Clave, keyboardActions = KeyboardActions(onDone = {
                      focusManager.clearFocus()
                  }), focusRequester = claveFocusRequester)
-                 Button(
-                     onClick = { },
-                     modifier = Modifier
-                         .fillMaxWidth(),
-                     colors = ButtonDefaults.buttonColors(
-                         containerColor = Iconos
-                     )
-                 ) {
-                     Text(
-                         "Ingresar",
-                         modifier = Modifier
-                             .padding(vertical = 8.dp)
-                     )
-                 }
-                 TextoRegistro()
+                 BotonPrincipal(titulo = "Ingresar")
+                 TextoBottom("¿No tienes cuenta? ", "Creala" )
              }
          }
+     }
+ }
+ 
+ @Composable
+ fun BotonPrincipal(titulo: String) {
+     Button(
+         onClick = { },
+         modifier = Modifier
+             .fillMaxWidth(),
+         colors = ButtonDefaults.buttonColors(
+             containerColor = Iconos
+         )
+     ) {
+         Text(
+             titulo,
+             modifier = Modifier
+                 .padding(vertical = 8.dp)
+         )
      }
  }
 
@@ -175,7 +180,9 @@ import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
      ToggleButton(
          options = options,
          type = TipoSeleccion.SINGLE,
-         modifier = Modifier.padding(end = 4.dp).background(Blanco),
+         modifier = Modifier
+             .padding(end = 4.dp)
+             .background(Blanco),
          onClick = {  }
      )
  }
@@ -308,23 +315,24 @@ import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
  }
 
  @Composable
- fun Texto() {
+ fun Titulo(texto: String) {
      Text(
-         text = "¡Bienvenidx a Torneos.UD!",
+         text = texto,
          fontWeight = FontWeight.Bold,
+         style = MaterialTheme.typography.titleLarge,
          color = Blanco
      )
  }
  @Composable
- fun TextoRegistro() {
+ fun TextoBottom(texto: String, boton: String) {
      Row{
          Text(
-             text = "¿No tienes cuenta? ",
+             text = texto,
              fontWeight = FontWeight.Normal,
              color = Blanco
          )
          Text(
-             text = "Creala",
+             text = boton,
              fontWeight = FontWeight.Bold,
              textDecoration = TextDecoration.Underline,
              color = Iconos
