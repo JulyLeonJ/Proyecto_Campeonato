@@ -9,13 +9,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.absolutePadding
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -28,6 +29,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -53,9 +55,12 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.julyleon.proyecto_campeonato.InicioSesion.Clave.icon
 import com.julyleon.proyecto_campeonato.InicioSesion.Correo.icon
 import com.julyleon.proyecto_campeonato.ui.theme.Blanco
@@ -188,15 +193,93 @@ fun Principal() {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(color = Color(0xFFFFF7E2))
-            ) /*{
-            Image(
-                painter = painterResource(id = R.drawable.fondo),
-                contentDescription = "imagen de fondo",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
-            )
-        }
-        */
+            ) {
+
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        //.aspectRatio(1f)
+                        .offset(y = 85.dp)
+                ){
+                    Text(
+                        text = "Hola Bryan, listo para competir?",
+                        color = Color.Black,
+                        textAlign = TextAlign.Center,
+                        fontWeight =  FontWeight.Bold,
+                        textDecoration = TextDecoration.Underline,
+                        fontSize = 15.sp,
+                        modifier = Modifier
+                            .aspectRatio(1f)
+
+
+                    )
+                    Text(
+                        text = "Nombre:",
+                        color = Color.Blue,
+                        textAlign = TextAlign.Justify,
+                        fontWeight =  FontWeight.Bold,
+                        fontSize = 15.sp,
+                        modifier = Modifier
+                            .aspectRatio(1f)
+                            .offset(y = 30.dp)
+                    )
+                    Text(
+                        text = "Torneo de Dota 2",
+                        color = Color.Black,
+                        textAlign = TextAlign.Justify,
+                        fontSize = 15.sp,
+                        modifier = Modifier
+                            .aspectRatio(1f)
+                            .offset(x = 80.dp)
+                            .offset(y = 30.dp)
+                    )
+                    Spacer(modifier = Modifier.padding())
+                    Text(
+                        text = "Lugar:",
+                        color = Color.Blue,
+                        textAlign = TextAlign.Justify,
+                        fontWeight =  FontWeight.Bold,
+                        fontSize = 15.sp,
+                        modifier = Modifier
+                            .aspectRatio(1f)
+                            .offset(y = 50.dp)
+                    )
+                    Text(
+                        text = "Facultad Tecnológica",
+                        color = Color.Black,
+                        textAlign = TextAlign.Justify,
+                        fontSize = 15.sp,
+                        modifier = Modifier
+                            .aspectRatio(1f)
+                            .offset(x = 80.dp)
+                            .offset(y = 50.dp)
+                    )
+
+                    Image(
+                        painter = painterResource(id = R.drawable.pato),
+                        contentDescription = "imagen de fondo",
+                        contentScale = ContentScale.Fit,
+                        alignment = Alignment.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .align(Alignment.Center)
+                            .offset(y = -30.dp)
+                    )
+                    Button(
+                        onClick = { /* Acción al hacer clic */ },
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .fillMaxWidth()
+                            .offset(y = -70.dp)
+
+                    ) {
+                        Text("Información")
+                    }
+
+
+
+                }
+            }
     }
 }
 
