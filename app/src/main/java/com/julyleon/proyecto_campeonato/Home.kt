@@ -6,11 +6,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -54,6 +56,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.julyleon.proyecto_campeonato.InicioSesion.Clave.icon
+import com.julyleon.proyecto_campeonato.InicioSesion.Correo.icon
 import com.julyleon.proyecto_campeonato.ui.theme.Blanco
 import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
 import com.julyleon.proyecto_campeonato.ui.theme.Verde
@@ -111,11 +115,38 @@ class Home : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Principal() {
-    Scaffold(
-        bottomBar = {
-            BottomAppBar(
-                containerColor = Verde,
-                contentColor = MaterialTheme.colorScheme.primary,
+
+        Scaffold(
+            topBar = {
+                BottomAppBar(
+                    containerColor = Verde,
+                    contentColor = MaterialTheme.colorScheme.primary
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth()
+                    ){
+                        Icon(
+                            painter = painterResource(id = R.drawable.menu) ,
+                            contentDescription = "Menu",
+                            tint = Blanco,
+                            modifier = Modifier
+                                .size(40.dp)
+
+
+                        )
+                        Text(
+                            text = "Home",
+                            color = Color.White,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                }
+            },
+            bottomBar = {
+                BottomAppBar(
+                    containerColor = Verde,
+                    contentColor = MaterialTheme.colorScheme.primary,
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth()
@@ -126,23 +157,38 @@ fun Principal() {
                         tint = Blanco,
                         modifier = Modifier
                             .size(40.dp)
+                            .weight(1f)
+
                     )
-                    Spacer(modifier = Modifier.padd)
+                    Spacer(modifier = Modifier.padding())
                     Icon(
                         painter = painterResource(id = R.drawable.torneo),
                         contentDescription = "Torneo",
                         tint = Blanco,
                         modifier = Modifier
                             .size(40.dp)
+                            .weight(1f)
+
+                    )
+                    Spacer(modifier = Modifier.padding())
+                    Icon(
+                        painter = painterResource(id = R.drawable.usuario),
+                        contentDescription = "Perfil",
+                        tint = Blanco,
+                        modifier = Modifier
+                            .size(40.dp)
+                            .weight(1f)
+
                     )
                 }
             }
         },
     ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(color = Color(0xFFFFF7E2))
+            ) /*{
             Image(
                 painter = painterResource(id = R.drawable.fondo),
                 contentDescription = "imagen de fondo",
@@ -150,6 +196,7 @@ fun Principal() {
                 modifier = Modifier.fillMaxSize()
             )
         }
+        */
     }
 }
 
