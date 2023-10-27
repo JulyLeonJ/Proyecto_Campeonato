@@ -12,3 +12,4 @@ val Pink40 = Color(0xFF7D5260)
 val Verde = Color(0xFF555F46)
 val Blanco = Color(0xFFFFF7E2)
 val Iconos = Color(0xFF004F72)
+

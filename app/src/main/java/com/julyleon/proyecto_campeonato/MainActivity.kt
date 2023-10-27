@@ -77,6 +77,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.julyleon.proyecto_campeonato.ui.theme.Blanco
 import com.julyleon.proyecto_campeonato.ui.theme.Iconos
 import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
@@ -133,6 +134,8 @@ import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
                      modifier = Modifier.size(80.dp),
                      tint = Color.White
                  )
+
+
                  Titulo("¡Bievenidx a Torneos.UD!")
                  TipoUsuario()
                  Entrada(InicioSesion.Correo, keyboardActions = KeyboardActions(onNext = {
@@ -143,10 +146,14 @@ import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
                  }), focusRequester = claveFocusRequester)
                  BotonPrincipal(titulo = "Ingresar")
                  TextoBottom("¿No tienes cuenta? ", "Creala" )
+
+
+
+                 }
              }
          }
      }
- }
+
  
  @Composable
  fun BotonPrincipal(titulo: String) {
