@@ -143,6 +143,7 @@ fun Principal() {
                             text = "Home",
                             color = Color.White,
                             textAlign = TextAlign.Center,
+                            fontSize = 25.sp,
                             modifier = Modifier.weight(1f)
                         )
                     }

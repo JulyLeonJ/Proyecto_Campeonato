@@ -1,5 +1,6 @@
 package com.julyleon.proyecto_campeonato
 
+
 import android.annotation.SuppressLint
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
@@ -40,14 +41,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
@@ -63,45 +57,12 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.julyleon.proyecto_campeonato.InicioSesion.Clave.icon
-import com.julyleon.proyecto_campeonato.InicioSesion.Correo.icon
 import com.julyleon.proyecto_campeonato.ui.theme.Blanco
 import com.julyleon.proyecto_campeonato.ui.theme.Iconos
 import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
 import com.julyleon.proyecto_campeonato.ui.theme.Verde
-/*
-data class BottomBarDestinations(
-    val ruta: String,
-    val selectedIcon: ImageVector,
-    val iconTextId: Int
-)
 
-val BOTTOM_BAR = listOf(
-    BottomBarDestinations(
-        ruta = Rutas.HOME,
-        selectedIcon = Icons.Default.Home,
-        iconTextId = R.string.home
-    ),
-    BottomBarDestinations(
-        ruta = Rutas.TORNEO,
-        selectedIcon = Icons.Default.Star,
-        iconTextId = R.string.torneo
-    ),
-    BottomBarDestinations(
-        ruta = Rutas.CUENTA,
-        selectedIcon = Icons.Default.AccountCircle,
-        iconTextId = R.string.cuenta
-    )
-)
-
-object Rutas {
-    const val HOME = "home"
-    const val TORNEO = "torneo"
-    const val CUENTA = "cuenta"
-}
-
-*/
-class Torneos : ComponentActivity() {
+class Cuenta : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -112,7 +73,7 @@ class Torneos : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Torneo()
+                    TuCuenta()
                 }
             }
         }
@@ -122,7 +83,7 @@ class Torneos : ComponentActivity() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Torneo() {
+fun TuCuenta() {
 
     Scaffold(
         topBar = {
@@ -143,7 +104,7 @@ fun Torneo() {
 
                     )
                     Text(
-                        text = "Torneos",
+                        text = "Cuenta",
                         color = Color.White,
                         textAlign = TextAlign.Center,
                         fontSize = 25.sp,
@@ -204,19 +165,9 @@ fun Torneo() {
             Box(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
-                    .offset(y = 85.dp)
+                    .offset(y = -30.dp)
             ){
-                Text(
-                    text = "Torneos Creados",
-                    color = Color.Black,
-                    textAlign = TextAlign.Center,
-                    fontWeight =  FontWeight.Bold,
-                    textDecoration = TextDecoration.Underline,
-                    fontSize = 15.sp,
-                    modifier = Modifier
-                        .aspectRatio(1f)
 
-                )
                 Image(
                     painter = painterResource(id = R.drawable.pato),
                     contentDescription = "imagen de fondo",
@@ -225,45 +176,137 @@ fun Torneo() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(Alignment.Center)
-                        .offset(y = -60.dp)
+                        .offset(y = 20.dp)
                 )
-                Button(
-                    onClick = { /* Acción al hacer clic */ },
+                Icon(
+                    painter = painterResource(id = R.drawable.editar),
+                    contentDescription = "Editar",
+                    tint = Iconos,
                     modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .fillMaxWidth()
-                        .offset(y = -110.dp)
-
-                ) {
-                    Text("Baloncesto 2023")
-                }
+                        .size(40.dp)
+                        .align(Alignment.BottomEnd)
+                        .offset(y = -150.dp)
+                        .offset(x = -30.dp)
+                )
                 Box(
                     modifier = Modifier
                         .align(Alignment.TopCenter)
                         //.aspectRatio(1f)
-                        .offset(y = 400.dp)
+                        .offset(y = 350.dp)
                 ){
+
+
+                    Text(
+                        text = "David Santiago Rios",
+                        color = Color.Black,
+                        textAlign = TextAlign.Justify,
+                        fontSize = 25.sp,
+                        modifier = Modifier
+                            .aspectRatio(1f)
+                            .offset(x = 20.dp)
+                            .offset(y = 30.dp)
+                    )
+                    Spacer(modifier = Modifier.padding())
+                    Icon(
+                        painter = painterResource(id = R.drawable.editar),
+                        contentDescription = "Editar",
+                        tint = Iconos,
+                        modifier = Modifier
+                            .size(40.dp)
+                            .align(Alignment.BottomEnd)
+                            .offset(y = -330.dp)
+                            .offset(x = -30.dp)
+                    )
+
+                    Text(
+                        text = "20202578106",
+                        color = Color.Black,
+                        textAlign = TextAlign.Justify,
+                        fontSize = 25.sp,
+                        modifier = Modifier
+                            .aspectRatio(1f)
+                            .offset(x = 20.dp)
+                            .offset(y = 100.dp)
+                    )
+                    Spacer(modifier = Modifier.padding())
+                    Icon(
+                        painter = painterResource(id = R.drawable.editar),
+                        contentDescription = "Editar",
+                        tint = Iconos,
+                        modifier = Modifier
+                            .size(40.dp)
+                            .align(Alignment.BottomEnd)
+                            .offset(y = -260.dp)
+                            .offset(x = -30.dp)
+                    )
+
+                    Text(
+                        text = "driosm@udistrital.edu.co",
+                        color = Color.Black,
+                        textAlign = TextAlign.Justify,
+                        fontSize = 25.sp,
+                        modifier = Modifier
+                            .aspectRatio(1f)
+                            .offset(x = 20.dp)
+                            .offset(y = 160.dp)
+                    )
+                    Spacer(modifier = Modifier.padding())
+                    Icon(
+                        painter = painterResource(id = R.drawable.editar),
+                        contentDescription = "Editar",
+                        tint = Iconos,
+                        modifier = Modifier
+                            .size(40.dp)
+                            .align(Alignment.BottomEnd)
+                            .offset(y = -190.dp)
+                            .offset(x = -30.dp)
+                    )
                     Image(
-                        painter = painterResource(id = R.drawable.mas),
+                        painter = painterResource(id = R.drawable.ajustamiento),
                         contentDescription = "imagen de fondo",
                         contentScale = ContentScale.Inside,
                         alignment = Alignment.Center,
                         colorFilter = ColorFilter.tint(Iconos),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .align(Alignment.Center)
-                            .offset(y = 30.dp)
+                            .align(Alignment.BottomStart)
+                            .offset(y = -20.dp)
+                            .offset(x = -110.dp)
+                            .scale(0.3f)
+                    )
+
+                    Button(
+                        onClick = { /* Acción al hacer clic */ },
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .offset(y = -30.dp)
+                            .offset(x = 35.dp)
+
+                    ) {
+                        Text("Ajustes")
+                    }
+                    Image(
+                        painter = painterResource(id = R.drawable.eliminar),
+                        contentDescription = "imagen de fondo",
+                        contentScale = ContentScale.Inside,
+                        alignment = Alignment.Center,
+                        colorFilter = ColorFilter.tint(Iconos),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .align(Alignment.BottomEnd)
+                            .offset(y = -20.dp)
+                            .offset(x = 105.dp)
                             .scale(0.3f)
                     )
                     Button(
                         onClick = { /* Acción al hacer clic */ },
                         modifier = Modifier
-                            .align(Alignment.BottomCenter)
-                            .fillMaxWidth()
-                            .offset(y = 30.dp)
+                            .align(Alignment.BottomEnd)
+                            .offset(y = -30.dp)
+                            .offset(x = -40.dp)
 
                     ) {
-                        Text("Crear Torneo")
+                        Text("Eliminar")
                     }
 
                 }
@@ -276,8 +319,8 @@ fun Torneo() {
 
 @Preview(showSystemUi = true)
 @Composable
-fun PreviewTorneo() {
+fun PreviewTuCuenta() {
     Proyecto_CampeonatoTheme {
-        Torneo()
+        TuCuenta()
     }
 }
