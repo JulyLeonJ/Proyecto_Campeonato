@@ -50,7 +50,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -64,9 +66,10 @@ import androidx.compose.ui.unit.sp
 import com.julyleon.proyecto_campeonato.InicioSesion.Clave.icon
 import com.julyleon.proyecto_campeonato.InicioSesion.Correo.icon
 import com.julyleon.proyecto_campeonato.ui.theme.Blanco
+import com.julyleon.proyecto_campeonato.ui.theme.Iconos
 import com.julyleon.proyecto_campeonato.ui.theme.Proyecto_CampeonatoTheme
 import com.julyleon.proyecto_campeonato.ui.theme.Verde
-
+/*
 data class BottomBarDestinations(
     val ruta: String,
     val selectedIcon: ImageVector,
@@ -82,7 +85,7 @@ val BOTTOM_BAR = listOf(
     BottomBarDestinations(
         ruta = Rutas.TORNEO,
         selectedIcon = Icons.Default.Star,
-        iconTextId = R.string.home
+        iconTextId = R.string.torneo
     ),
     BottomBarDestinations(
         ruta = Rutas.CUENTA,
@@ -97,8 +100,8 @@ object Rutas {
     const val CUENTA = "cuenta"
 }
 
-
-class Home : ComponentActivity() {
+*/
+class Torneos : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,7 +112,7 @@ class Home : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Principal()
+                    Torneo()
                 }
             }
         }
@@ -119,39 +122,41 @@ class Home : ComponentActivity() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Principal() {
+fun Torneo() {
 
-        Scaffold(
-            topBar = {
-                BottomAppBar(
-                    containerColor = Verde,
-                    contentColor = MaterialTheme.colorScheme.primary
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth()
-                    ){
-                        Icon(
-                            painter = painterResource(id = R.drawable.menu) ,
-                            contentDescription = "Menu",
-                            tint = Blanco,
-                            modifier = Modifier
-                                .size(40.dp)
+    Scaffold(
+        topBar = {
+            BottomAppBar(
+                containerColor = Verde,
+                contentColor = MaterialTheme.colorScheme.primary
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth()
+                ){
+                    Icon(
+                        painter = painterResource(id = R.drawable.menu) ,
+                        contentDescription = "Menu",
+                        tint = Blanco,
+                        modifier = Modifier
+                            .size(40.dp)
 
 
-                        )
-                        Text(
-                            text = "Home",
-                            color = Color.White,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.weight(1f)
-                        )
-                    }
+                    )
+                    Text(
+                        text = "Torneos",
+                        color = Color.White,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .weight(1f)
+                            .size(50.dp)
+                    )
                 }
-            },
-            bottomBar = {
-                BottomAppBar(
-                    containerColor = Verde,
-                    contentColor = MaterialTheme.colorScheme.primary,
+            }
+        },
+        bottomBar = {
+            BottomAppBar(
+                containerColor = Verde,
+                contentColor = MaterialTheme.colorScheme.primary,
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth()
@@ -189,154 +194,80 @@ fun Principal() {
             }
         },
     ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = Color(0xFFFFF7E2))
+        ) {
+
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = Color(0xFFFFF7E2))
-            ) {
+                    .align(Alignment.TopCenter)
+                    .offset(y = 85.dp)
+            ){
+                Text(
+                    text = "Torneos Creados",
+                    color = Color.Black,
+                    textAlign = TextAlign.Center,
+                    fontWeight =  FontWeight.Bold,
+                    textDecoration = TextDecoration.Underline,
+                    fontSize = 15.sp,
+                    modifier = Modifier
+                        .aspectRatio(1f)
 
+                )
+                Image(
+                    painter = painterResource(id = R.drawable.pato),
+                    contentDescription = "imagen de fondo",
+                    contentScale = ContentScale.Fit,
+                    alignment = Alignment.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .align(Alignment.Center)
+                        .offset(y = -60.dp)
+                )
+                Button(
+                    onClick = { /* Acción al hacer clic */ },
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .fillMaxWidth()
+                        .offset(y = -110.dp)
+
+                ) {
+                    Text("Baloncesto 2023")
+                }
                 Box(
                     modifier = Modifier
                         .align(Alignment.TopCenter)
                         //.aspectRatio(1f)
-                        .offset(y = 85.dp)
+                        .offset(y = 400.dp)
                 ){
-                    Text(
-                        text = "Hola Bryan, listo para competir?",
-                        color = Color.Black,
-                        textAlign = TextAlign.Center,
-                        fontWeight =  FontWeight.Bold,
-                        textDecoration = TextDecoration.Underline,
-                        fontSize = 15.sp,
-                        modifier = Modifier
-                            .aspectRatio(1f)
-
-
-                    )
-                    Text(
-                        text = "Nombre:",
-                        color = Color.Blue,
-                        textAlign = TextAlign.Justify,
-                        fontWeight =  FontWeight.Bold,
-                        fontSize = 15.sp,
-                        modifier = Modifier
-                            .aspectRatio(1f)
-                            .offset(y = 30.dp)
-                    )
-                    Text(
-                        text = "Torneo de Dota 2",
-                        color = Color.Black,
-                        textAlign = TextAlign.Justify,
-                        fontSize = 15.sp,
-                        modifier = Modifier
-                            .aspectRatio(1f)
-                            .offset(x = 80.dp)
-                            .offset(y = 30.dp)
-                    )
-                    Spacer(modifier = Modifier.padding())
-                    Text(
-                        text = "Lugar:",
-                        color = Color.Blue,
-                        textAlign = TextAlign.Justify,
-                        fontWeight =  FontWeight.Bold,
-                        fontSize = 15.sp,
-                        modifier = Modifier
-                            .aspectRatio(1f)
-                            .offset(y = 50.dp)
-                    )
-                    Text(
-                        text = "Facultad Tecnológica",
-                        color = Color.Black,
-                        textAlign = TextAlign.Justify,
-                        fontSize = 15.sp,
-                        modifier = Modifier
-                            .aspectRatio(1f)
-                            .offset(x = 80.dp)
-                            .offset(y = 50.dp)
-                    )
-
                     Image(
-                        painter = painterResource(id = R.drawable.pato),
+                        painter = painterResource(id = R.drawable.mas),
                         contentDescription = "imagen de fondo",
-                        contentScale = ContentScale.Fit,
+                        contentScale = ContentScale.Inside,
                         alignment = Alignment.Center,
+                        colorFilter = ColorFilter.tint(Iconos),
                         modifier = Modifier
                             .fillMaxWidth()
                             .align(Alignment.Center)
-                            .offset(y = -30.dp)
+                            .offset(y = 30.dp)
+                            .scale(0.3f)
                     )
                     Button(
                         onClick = { /* Acción al hacer clic */ },
                         modifier = Modifier
                             .align(Alignment.BottomCenter)
                             .fillMaxWidth()
-                            .offset(y = -70.dp)
+                            .offset(y = 30.dp)
 
                     ) {
-                        Text("Información")
+                        Text("Crear Torneo")
                     }
-                    Box(
-                        modifier = Modifier
-                            .align(Alignment.TopCenter)
-                            //.aspectRatio(1f)
-                            .offset(y = 300.dp)
-                    ){
-                        Text(
-                            text = "Nombre:",
-                            color = Color.Blue,
-                            textAlign = TextAlign.Justify,
-                            fontWeight =  FontWeight.Bold,
-                            fontSize = 15.sp,
-                            modifier = Modifier
-                                .aspectRatio(1f)
-                                .offset(y = 30.dp)
-                        )
-                    Text(
-                        text = "Torneo de Dota 2",
-                        color = Color.Black,
-                        textAlign = TextAlign.Justify,
-                        fontSize = 15.sp,
-                        modifier = Modifier
-                            .aspectRatio(1f)
-                            .offset(x = 80.dp)
-                            .offset(y = 30.dp)
-                    )
-                    Spacer(modifier = Modifier.padding())
-                    Text(
-                        text = "Lugar:",
-                        color = Color.Blue,
-                        textAlign = TextAlign.Justify,
-                        fontWeight =  FontWeight.Bold,
-                        fontSize = 15.sp,
-                        modifier = Modifier
-                            .aspectRatio(1f)
-                            .offset(y = 50.dp)
-                    )
-                    Text(
-                        text = "Facultad Tecnológica",
-                        color = Color.Black,
-                        textAlign = TextAlign.Justify,
-                        fontSize = 15.sp,
-                        modifier = Modifier
-                            .aspectRatio(1f)
-                            .offset(x = 80.dp)
-                            .offset(y = 50.dp)
-                    )
 
-                    Image(
-                        painter = painterResource(id = R.drawable.pato),
-                        contentDescription = "imagen de fondo",
-                        contentScale = ContentScale.Fit,
-                        alignment = Alignment.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .align(Alignment.Center)
-                            .offset(y = -30.dp)
-                    )
-
-                     }
                 }
             }
+        }
     }
 }
 
@@ -344,8 +275,8 @@ fun Principal() {
 
 @Preview(showSystemUi = true)
 @Composable
-fun PreviewHome() {
+fun PreviewTorneo() {
     Proyecto_CampeonatoTheme {
-        Principal()
+        Torneo()
     }
 }
